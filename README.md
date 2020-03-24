@@ -285,6 +285,14 @@ int main() {
 
 ![](Screenshots/hasil_8queen.jpg)
 
+### 2.1 8-Puzzle Heuristic-1
+
+### 2.2 8-Puzzle Heuristic-2
+
+### 2.3 8-Queen_Hill Climbing
+
+### 3. Minimax - TicTacToe
+
 ### 4. 4-Queen
 [Source Code](https://github.com/anggarayp/KB-F_05111840000008/blob/master/4.%204-Queen/4queen.cpp)
 
