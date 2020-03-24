@@ -92,7 +92,7 @@ int main() {
 
 **Hasil : **
 
-![](Screenshots/hasil_8queen.jpg)
+
 
 ### 4. 4-Queen
 Penjelasan kodingannya sama seperti [8-Queen](https://github.com/anggarayp/KB-F_05111840000008#14-8-queen), hanya saja N-nya di define = 4
