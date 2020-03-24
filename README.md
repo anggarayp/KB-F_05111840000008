@@ -91,6 +91,7 @@ int main() {
  ```
 
 **Hasil : **
+
 ![](Screenshots/hasil_8queen.jpg)
 
 ### 4. 4-Queen
