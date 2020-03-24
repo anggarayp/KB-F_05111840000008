@@ -9,10 +9,10 @@ Institut Teknologi Sepuluh Nopember Surabaya
 * [1.2 8-Puzzle DFS](https://github.com/anggarayp/KB-F_05111840000008#12-8-puzzle-dfs)
 * [1.3 8-Puzzle IDS](https://github.com/anggarayp/KB-F_05111840000008#13-8-puzzle-ids)
 * [1.4 8-Queen](https://github.com/anggarayp/KB-F_05111840000008#14-8-queen)
-* [2.1 8-Puzzle Heuristic-1]()
-* [2.2 8-Puzzle Heuristic-2]()
-* [2.3 8-Queen_Hill Climbing]()
-* [3. Minimax - TicTacToe]()
+* [2.1 8-Puzzle Heuristic-1](https://github.com/anggarayp/KB-F_05111840000008/blob/master/README.md#21-8-puzzle-heuristic-1)
+* [2.2 8-Puzzle Heuristic-2](https://github.com/anggarayp/KB-F_05111840000008/blob/master/README.md#22-8-puzzle-heuristic-2)
+* [2.3 8-Queen_Hill Climbing](https://github.com/anggarayp/KB-F_05111840000008/blob/master/README.md#23-8-queen_hill-climbing)
+* [3. Minimax - TicTacToe](https://github.com/anggarayp/KB-F_05111840000008/blob/master/README.md#3-minimax---tictactoe)
 * [4. 4-Queen](https://github.com/anggarayp/KB-F_05111840000008#4-4-queen)
 
 ### 1.1 8-Puzzle BFS
