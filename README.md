@@ -113,3 +113,7 @@ backtracking */
 #include <stdbool.h> 
 #include <stdio.h> 
 ```
+
+**Hasil : **
+
+![](Screenshots/hasil_4queen.jpg)
