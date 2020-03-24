@@ -28,6 +28,15 @@ BFS menggunakan struktur data `queue` yang merupakan struktur data `First In`, `
 ### 1.4 8-Queen
 [kodingan](https://github.com/anggarayp/KB-F_05111840000008/blob/master/1.4%208-Queen/8queen.cpp)
 
+Awal-awal kita define N = 8, karena problemnya adalah 8-queen
+```c
+/* C/C++ program to solve N Queen Problem using 
+backtracking */
+#define N 4
+#include <stdbool.h> 
+#include <stdio.h> 
+```
+
 ld merupakan sebuah array di mana indeksnya mengindikasikan baris-col + N-1 (N-1) adalah untuk menggeser perbedaan untuk menyimpan indeks negatif. Sedangkan rd merupakan sebuah array di mana indeksnya mengindikasikan baris + col dan digunakan untuk memeriksa apakah seorang ratu dapat ditempatkan di diagonal kanan atau tidak. Untuk cl sendiri merupakan array kolom di mana indeksnya menunjukkan kolom dan digunakan untuk memeriksa apakah seorang ratu dapat ditempatkan di baris itu atau tidak
 ```c
 int ld[30] = { 0 }; 
