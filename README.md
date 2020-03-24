@@ -200,6 +200,7 @@ int main() {
 **Hasil :**
 
 ![](Screenshots/hasil_bfs.jpg)
+
 Dari gambar diatas menunjukkan bahwa jumlah langkah yang ditempuh sebanyak 3 kali dengan waktu 0082 seconds.
 
 ### 1.2 8-Puzzle DFS
