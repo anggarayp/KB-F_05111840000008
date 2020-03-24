@@ -9,8 +9,8 @@ Institut Teknologi Sepuluh Nopember Surabaya
 * [1.2 8-Puzzle DFS](https://github.com/anggarayp/KB-F_05111840000008#12-8-puzzle-dfs)
 * [1.3 8-Puzzle IDS](https://github.com/anggarayp/KB-F_05111840000008#13-8-puzzle-ids)
 * [1.4 8-Queen](https://github.com/anggarayp/KB-F_05111840000008#14-8-queen)
-* [2.1 Heuristic-1]()
-* [2.2 Heuristic-2]()
+* [2.1 8-Puzzle Heuristic-1]()
+* [2.2 8-Puzzle Heuristic-2]()
 * [2.3 8-Queen_Hill Climbing]()
 * [3. Minimax - TicTacToe]()
 * [4. 4-Queen](https://github.com/anggarayp/KB-F_05111840000008#4-4-queen)
@@ -204,6 +204,15 @@ int main() {
 Dari gambar diatas menunjukkan bahwa jumlah langkah yang ditempuh sebanyak 3 kali dengan waktu 0082 seconds.
 
 ### 1.2 8-Puzzle DFS
+Algoritma DFS `(Depth First Search)` adalah salah satu algoritma yang digunakan untuk pencarian jalur. Contoh yang dibahas kali ini adalah mengenai pencarian jalur yang melalui semua titik.
+
+Depth First Search menggunakan struktur data `stack` sebagai lawan dari queue yang digunakan Breadth First Search.
+
+Semua node pada metode DFS ini akan dikunjungi di jalur saat ini sampai semua node yang belum dikunjungi telah dilalui setelah jalur berikutnya akan dipilih.
+
+![image](https://user-images.githubusercontent.com/61231385/77399329-c34b9f80-6ddb-11ea-9cc6-a2e35dc3b510.png)
+
+
 
 ### 1.3 8-Puzzle IDS
 
