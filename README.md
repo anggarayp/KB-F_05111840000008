@@ -28,4 +28,75 @@ BFS menggunakan struktur data `queue` yang merupakan struktur data `First In`, `
 ### 1.4 8-Queen
 [kodingan](https://github.com/anggarayp/KB-F_05111840000008/blob/master/1.4%208-Queen/8queen.cpp)
 
+ld merupakan sebuah array di mana indeksnya mengindikasikan baris-col + N-1 (N-1) adalah untuk menggeser perbedaan untuk menyimpan indeks negatif. Sedangkan rd merupakan sebuah array di mana indeksnya mengindikasikan baris + col dan digunakan untuk memeriksa apakah seorang ratu dapat ditempatkan di diagonal kanan atau tidak. Untuk cl sendiri merupakan array kolom di mana indeksnya menunjukkan kolom dan digunakan untuk memeriksa apakah seorang ratu dapat ditempatkan di baris itu atau tidak
+```c
+int ld[30] = { 0 }; 
+
+int rd[30] = { 0 }; 
+
+int cl[30] = { 0 }; 
+```
+
+Fungsi utilitas rekursif untuk menyelesaikan problem N-Queen
+```c
+bool solveNQUtil(int board[N][N], int col) { 
+	if (col >= N) 
+		return true; 
+    
+	for (int i = 0; i < N; i++) { 
+		if ((ld[i - col + N - 1] != 1 && 
+				rd[i + col] != 1) && cl[i] != 1) { 
+			
+			board[i][col] = 1; 
+			ld[i - col + N - 1] = 
+						rd[i + col] = cl[i] = 1; 
+
+	
+			if (solveNQUtil(board, col + 1)) 
+				return true; 
+        
+			board[i][col] = 0; // BACKTRACK 
+			ld[i - col + N - 1] = 
+						rd[i + col] = cl[i] = 0; 
+		} 
+	} 
+	return false; 
+}
+```
+
+Fungsi ini memecahkan masalah N Queen menggunakan Backtracking. Ini terutama menggunakan resolNQUtil () untuk menyelesaikan masalah. Ini mengembalikan false jika ratu tidak dapat ditempatkan, jika tidak, kembalikan benar dan mencetak penempatan ratu dalam bentuk 1s. Harap dicatat bahwa mungkin ada lebih dari satu solusi, fungsi ini mencetak salah satu solusi yang layak.
+```c
+bool solveNQ() { 
+	int board[N][N] = { { 0, 0, 0, 0 }, 
+						{ 0, 0, 0, 0 }, 
+						{ 0, 0, 0, 0 }, 
+						{ 0, 0, 0, 0 } }; 
+
+	if (solveNQUtil(board, 0) == false) { 
+		printf("Solution does not exist"); 
+		return false; 
+	} 
+
+	printSolution(board); 
+	return true; 
+} 
+```
+
+Program driver untuk menguji fungsi di atas
+```c
+int main() { 
+	solveNQ(); 
+	return 0; 
+} 
+ ```
+ 
 ### 4. 4-Queen
+Penjelasan kodingannya sama seperti [8-Queen](https://github.com/anggarayp/KB-F_05111840000008#14-8-queen), hanya saja N-nya di define = 4
+
+```c
+/* C/C++ program to solve N Queen Problem using 
+backtracking */
+#define N 4
+#include <stdbool.h> 
+#include <stdio.h> 
+```
