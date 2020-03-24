@@ -223,7 +223,7 @@ Awal-awal kita define N = 8, karena problemnya adalah 8-queen
 ```c
 /* C/C++ program to solve N Queen Problem using 
 backtracking */
-#define N 4
+#define N 8
 #include <stdbool.h> 
 #include <stdio.h> 
 ```
