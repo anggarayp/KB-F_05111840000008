@@ -20,6 +20,187 @@ BFS `(Breadth-First Search)` adalah algoritma yang melakukan pencarian secara me
 
 BFS menggunakan struktur data `queue` yang merupakan struktur data `First In`, `First Out` atau `FIFO`. Antrian ini menyimpan semua node yang harus kita jelajahi dan setiap kali sebuah node dieksplorasi ditambahkan ke set node yang dikunjungi.
 
+Algoritma BFS :
+![image](https://user-images.githubusercontent.com/61231385/77396854-18d17d80-6dd7-11ea-8b5d-afba5ee5ee2e.png)
+
+[kodingan](https://github.com/anggarayp/KB-F_05111840000008/blob/master/1.1%208-Puzzle%20BFS/bfs.cpp)
+
+Pertama, menyatakan space simpul pohon terlebih dahulu
+```c
+struct Node { 
+	// menyimpan simpul induk dari simpul saat ini
+	// membantu dalam melacak jejak ketika jawabannya ditemukan
+	Node* parent; 
+	
+	// menyimpan matrix 
+	int mat[N][N]; 
+
+	// menyimpan koordinat tile yang kosong kosong
+	int x, y;
+
+	// menyimpan jumlah gerakan sejauh ini
+	int level;
+}; 
+```
+
+Ini merupakan fungsi untuk mencetak matriks N x N
+```c
+int printMatrix(int mat[N][N]) 
+{ 
+	for (int i = 0; i < N; i++) 
+	{ 
+		for (int j = 0; j < N; j++) 
+			printf("%d ", mat[i][j]); 
+		printf("\n"); 
+	} 
+}
+```
+
+Ini merupakan fungsi untuk mengalokasikan node baru
+```c
+Node* newNode(int mat[N][N], int x, int y, int newX, 
+			int newY, int level, Node* parent) { 
+	Node* node = new Node; 
+
+	// atur pointer untuk path ke root 
+	node->parent = parent; 
+
+	// menyalin data dari node induk ke node saat ini 
+	memcpy(node->mat, mat, sizeof node->mat); 
+
+	// pindahkan tile dengan 1 posisi 
+	swap(node->mat[x][y], node->mat[newX][newY]); 
+
+	// atur jumlah gerakan sejauh ini
+	node->level = level; 
+
+	// perbarui koordinat tile kosong yang baru
+	node->x = newX; 
+	node->y = newY; 
+
+	return node; 
+} 
+```
+
+Menentukan row dan column
+```c
+int row[] = { 1, 0, -1, 0 }; 
+int col[] = { 0, -1, 0, 1 }; 
+```
+
+Fungsi untuk memeriksa apakah (x, y) adalah koordinat matriks yang valid.
+```c
+int isSafe(int x, int y) { 
+	return (x >= 0 && x < N && y >= 0 && y < N); 
+} 
+```
+
+Fungsi untuk mencetak path dari simpul akar ke simpul tujuan
+```c
+void printPath(Node* root) { 
+	if (root == NULL) 
+		return; 
+	printPath(root->parent); 
+	printMatrix(root->mat); 
+
+	printf("\n"); 
+} 
+
+bool checkGoal (int mat[N][N],int final [N] [N]) {
+ 	for (int i = 0; i < N; i++) 
+	{ 
+		for (int j = 0; j < N; j++) 
+			if (mat [i] [j] != final [i] [j]) 
+			return false;
+	}
+	 
+ 	return true;
+ }
+```
+
+Fungsi dibawah untuk memecahkan algoritma puzzle N * N - 1 menggunakan `Branch And Bound`. x dan y adalah koordinat ubin kosong dalam kondisi awal.
+```c
+void solve(int initial[N][N], int x, int y, 
+		int final[N][N]) { 
+	
+	// Buat antrian prioritas untuk 
+	//menyimpan node langsung dari pohon pencarian; 
+	queue <Node*> pq;
+	
+	// buat simpul root dan hitung biayanya
+	Node* root = newNode(initial, x, y, x, y, 0, NULL); 
+	
+	// tambahkan root ke daftar node langsung
+	pq.push(root); 
+
+	// Menemukan simpul hidup dengan biaya paling sedikit,
+	// tambahkan anak-anaknya ke daftar node langsung dan
+	// akhirnya menghapusnya dari daftar. 
+	while (!pq.empty()) { 
+		// Temukan node langsung dengan perkiraan biaya terendah
+		Node* min = pq.front(); 
+		//Node* min = pq.top();
+
+		// Node yang ditemukan dihapus dari daftar live node
+		pq.pop(); 
+		
+		// jika min adalah simpul jawaban
+		if (checkGoal (min->mat, final)) { 
+			// cetak jalur dari root ke tujuan 
+			printPath(min); 
+			printf ("Move: %d",min->level);
+			return; 
+		} 
+		
+		// lakukan untuk setiap child minimal 4 anak untuk sebuah simpul
+		for (int i = 0; i < 4; i++) { 
+			if (isSafe(min->x + row[i], min->y + col[i])) { 
+				// buat simpul anak dan hitung biayanya
+				Node* child = newNode(min->mat, min->x, 
+							min->y, min->x + row[i], 
+							min->y + col[i], 
+							min->level + 1, min);  
+
+				// Tambahkan anak ke daftar node langsung 
+				pq.push(child); 
+			} 
+		} 
+	} 
+} 
+```
+
+Lalu masuk ke program driver untuk menguji fungsi di atas. Untuk ruang yang kosong, diinisiasi dengan nilai 0.
+```c
+int main() { 
+	// Konfigurasi awal
+	// Nilai 0 digunakan untuk ruang kosong
+	int initial[N][N] = { 
+		{1, 2, 3}, 
+		{5, 6, 0}, 
+		{7, 8, 4} 
+	}; 
+
+	// Konfigurasi final yang dapat dipecahkan
+	// Nilai 0 digunakan untuk ruang kosong
+	int final[N][N] = { 
+		{1, 2, 3}, 
+		{5, 8, 6}, 
+		{0, 7, 4} 
+	}; 
+
+	// Koordinat petak kosong dalam konfigurasi awal
+	int x = 1, y = 2; 
+
+	solve(initial, x, y, final); 
+
+	return 0; 
+} 
+```
+
+**Hasil :**
+
+![](Screenshots/hasil_bfs.jpg)
+Dari gambar diatas menunjukkan bahwa jumlah langkah yang ditempuh sebanyak 3 kali dengan waktu 0082 seconds.
 
 ### 1.2 8-Puzzle DFS
 
