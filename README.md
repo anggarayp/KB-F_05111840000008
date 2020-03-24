@@ -184,9 +184,9 @@ int main() {
 	// Nilai 0 digunakan untuk ruang kosong
 	int final[N][N] = { 
 		{1, 2, 3}, 
-		{5, 8, 6}, 
-		{0, 7, 4} 
-	}; 
+		{4, 5, 6}, 
+		{7, 8, 0} 
+	};
 
 	// Koordinat petak kosong dalam konfigurasi awal
 	int x = 1, y = 2; 
