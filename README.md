@@ -201,7 +201,7 @@ int main() {
 
 ![](Screenshots/hasil_bfs.jpg)
 
-Dari gambar diatas menunjukkan bahwa jumlah langkah yang ditempuh sebanyak 3 kali dengan waktu 0082 seconds.
+Dari gambar diatas menunjukkan bahwa jumlah langkah yang ditempuh sebanyak 3 kali dengan waktu 0,082 seconds.
 
 ### 1.2 8-Puzzle DFS
 Algoritma DFS `(Depth First Search)` adalah salah satu algoritma yang digunakan untuk pencarian jalur. Contoh yang dibahas kali ini adalah mengenai pencarian jalur yang melalui semua titik.
