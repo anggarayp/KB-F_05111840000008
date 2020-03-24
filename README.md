@@ -23,7 +23,7 @@ BFS menggunakan struktur data `queue` yang merupakan struktur data `First In`, `
 Algoritma BFS :
 ![image](https://user-images.githubusercontent.com/61231385/77396854-18d17d80-6dd7-11ea-8b5d-afba5ee5ee2e.png)
 
-[kodingan](https://github.com/anggarayp/KB-F_05111840000008/blob/master/1.1%208-Puzzle%20BFS/bfs.cpp)
+[Source Code](https://github.com/anggarayp/KB-F_05111840000008/blob/master/1.1%208-Puzzle%20BFS/bfs.cpp)
 
 Pertama, menyatakan space simpul pohon terlebih dahulu
 ```c
@@ -208,7 +208,7 @@ Dari gambar diatas menunjukkan bahwa jumlah langkah yang ditempuh sebanyak 3 kal
 ### 1.3 8-Puzzle IDS
 
 ### 1.4 8-Queen
-[kodingan](https://github.com/anggarayp/KB-F_05111840000008/blob/master/1.4%208-Queen/8queen.cpp)
+[Source Code](https://github.com/anggarayp/KB-F_05111840000008/blob/master/1.4%208-Queen/8queen.cpp)
 
 Awal-awal kita define N = 8, karena problemnya adalah 8-queen
 ```c
@@ -286,7 +286,10 @@ int main() {
 ![](Screenshots/hasil_8queen.jpg)
 
 ### 4. 4-Queen
+[Source Code](https://github.com/anggarayp/KB-F_05111840000008/blob/master/4.%204-Queen/4queen.cpp)
+
 Penjelasan kodingannya sama seperti [8-Queen](https://github.com/anggarayp/KB-F_05111840000008#14-8-queen), hanya saja N-nya di define = 4
+
 
 ```c
 /* C/C++ program to solve N Queen Problem using 
