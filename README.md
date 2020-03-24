@@ -16,6 +16,11 @@ Institut Teknologi Sepuluh Nopember Surabaya
 * [4. 4-Queen]()
 
 ### 1.1 8-Puzzle BFS
+BFS `(Breadth-First Search)` adalah algoritma yang melakukan pencarian secara melebar yang mengunjungi simpul secara preorder yaitu mengunjungi suatu simpul kemudian mengunjungi semua simpul yang bertetangga dengan simpul tersebut terlebih dahulu.
+
+BFS menggunakan struktur data `queue` yang merupakan struktur data `First In`, `First Out` atau `FIFO`. Antrian ini menyimpan semua node yang harus kita jelajahi dan setiap kali sebuah node dieksplorasi ditambahkan ke set node yang dikunjungi.
+
+
 
 ### 1.2 8-Puzzle DFS
 
