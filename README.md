@@ -99,7 +99,7 @@ int main() {
 } 
  ```
 
-**Hasil : **
+**Hasil :**
 
 ![](Screenshots/hasil_8queen.jpg)
 
@@ -114,6 +114,6 @@ backtracking */
 #include <stdio.h> 
 ```
 
-**Hasil : **
+**Hasil :**
 
 ![](Screenshots/hasil_4queen.jpg)
