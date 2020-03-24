@@ -217,6 +217,8 @@ Semua node pada metode DFS ini akan dikunjungi di jalur saat ini sampai semua no
 ### 1.3 8-Puzzle IDS
 
 ### 1.4 8-Queen
+Algoritma yang digunakan adalah *Backtracking*. Idenya adalah untuk menempatkan ratu satu per satu di kolom yang berbeda, mulai dari kolom paling kiri. Ketika seorang ratu ditempatkan dalam sebuah kolom, memeriksa bentrokan dengan ratu yang sudah ditempatkan. Di kolom saat ini, jika menemukan baris yang tidak ada bentrokan, menandai baris dan kolom ini sebagai bagian dari solusi. Jika tidak menemukan baris seperti itu karena bentrokan, maka *backtrack* dan return false.
+
 [Source Code](https://github.com/anggarayp/KB-F_05111840000008/blob/master/1.4%208-Queen/8queen.cpp)
 
 Awal-awal kita define N = 8, karena problemnya adalah 8-queen
@@ -303,6 +305,8 @@ int main() {
 ### 3. Minimax - TicTacToe
 
 ### 4. 4-Queen
+Algoritma yang digunakan juga sama seperti 8-Queen yaitu *Backtracking*
+
 [Source Code](https://github.com/anggarayp/KB-F_05111840000008/blob/master/4.%204-Queen/4queen.cpp)
 
 Penjelasan kodingannya sama seperti [8-Queen](https://github.com/anggarayp/KB-F_05111840000008#14-8-queen), hanya saja N-nya di define = 4
