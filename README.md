@@ -45,8 +45,7 @@ struct Node {
 
 Ini merupakan fungsi untuk mencetak matriks N x N
 ```c
-int printMatrix(int mat[N][N]) 
-{ 
+int printMatrix(int mat[N][N]) { 
 	for (int i = 0; i < N; i++) 
 	{ 
 		for (int j = 0; j < N; j++) 
@@ -212,7 +211,175 @@ Semua node pada metode DFS ini akan dikunjungi di jalur saat ini sampai semua no
 
 ![image](https://user-images.githubusercontent.com/61231385/77399329-c34b9f80-6ddb-11ea-9cc6-a2e35dc3b510.png)
 
+[Source Code](https://github.com/anggarayp/KB-F_05111840000008/blob/master/1.2%208-Puzzle%20DFS/dfs.cpp)
 
+Pertama, menyatakan space simpul pohon terlebih dahulu
+```c
+struct Node { 
+	// menyimpan simpul induk dari simpul saat ini
+	// membantu dalam melacak jejak ketika jawabannya ditemukan
+	Node* parent; 
+	
+	// menyimpan matrix 
+	int mat[N][N]; 
+
+	// menyimpan koordinat tile yang kosong kosong
+	int x, y;
+
+	// menyimpan jumlah gerakan sejauh ini
+	int level;
+}; 
+```
+
+Fungsi berikut merupakan fungsi untuk mencetak matriks N x N
+```c
+int printMatrix(int mat[N][N]) 
+{ 
+	for (int i = 0; i < N; i++) 
+	{ 
+		for (int j = 0; j < N; j++) 
+			printf("%d ", mat[i][j]); 
+		printf("\n"); 
+	} 
+}
+```
+
+Ini merupakan fungsi untuk mengalokasikan node baru
+```c
+Node* newNode(int mat[N][N], int x, int y, int newX, 
+			int newY, int level, Node* parent) { 
+	Node* node = new Node; 
+
+	// atur pointer untuk path ke root 
+	node->parent = parent; 
+
+	// menyalin data dari node induk ke node saat ini 
+	memcpy(node->mat, mat, sizeof node->mat); 
+
+	// pindahkan tile dengan 1 posisi 
+	swap(node->mat[x][y], node->mat[newX][newY]); 
+
+	// atur jumlah gerakan sejauh ini
+	node->level = level; 
+
+	// perbarui koordinat tile kosong yang baru
+	node->x = newX; 
+	node->y = newY; 
+
+	return node; 
+} 
+```
+
+Menentukan row dan column
+```c
+int row[] = { 1, 0, -1, 0 }; 
+int col[] = { 0, -1, 0, 1 }; 
+```
+
+Fungsi untuk memeriksa apakah (x, y) adalah koordinat matriks yang valid.
+```c
+int isSafe(int x, int y) { 
+	return (x >= 0 && x < N && y >= 0 && y < N); 
+} 
+```
+
+Fungsi untuk mencetak path dari simpul akar ke simpul tujuan
+```c
+void printPath(Node* root) { 
+	if (root == NULL) 
+		return; 
+	printPath(root->parent); 
+	printMatrix(root->mat); 
+
+	printf("\n"); 
+} 
+
+bool testing (int mat[N][N],int final [N] [N]) {
+ 	for (int i = 0; i < N; i++) { 
+		for (int j = 0; j < N; j++) 
+			if (mat [i] [j] != final [i] [j]) 
+			return false;
+	}
+ 	return true;
+ }
+```
+
+Fungsi dibawah untuk memecahkan algoritma puzzle N * N - 1 menggunakan `Branch And Bound`. x dan y adalah koordinat ubin kosong dalam kondisi awal.
+
+```c
+void solve(int initial[N][N], int x, int y, 
+		int final[N][N]) { 
+	// Buat antrian prioritas untuk menyimpan node langsung dari pohon pencarian; 
+	stack <Node*> pq;
+	
+	// buat simpul root dan hitung biayanya
+	Node* root = newNode(initial, x, y, x, y, 0, NULL); 
+	
+	// tambahkan root ke daftar node langsung
+	pq.push(root); 
+
+	// Menemukan simpul hidup dengan biaya paling sedikit,
+	// tambahkan anak-anaknya ke daftar node langsung dan
+	// akhirnya menghapusnya dari daftar.
+	while (!pq.empty()) { 
+		// Temukan node langsung dengan perkiraan biaya terendah 
+		Node* min = pq.top();
+
+		// Node yang ditemukan dihapus dari daftar live node 
+		pq.pop(); 
+
+		// jika min adalah simpul jawaban 
+		if (testing (min->mat, final)) { 
+			// cetak jalur dari root ke tujuan  
+			printPath(min);
+			printf ("Move: %d", min->level);
+			return; 
+		} 
+		
+		// lakukan untuk setiap child minimal 4 anak untuk sebuah simpul 
+		for (int i = 0; i < 4; i++) { 
+			if (isSafe(min->x + row[i], min->y + col[i])) { 
+				// buat simpul anak dan hitung biayanya
+				Node* child = newNode(min->mat, min->x, 
+							min->y, min->x + row[i], 
+							min->y + col[i], 
+							min->level + 1, min);  
+
+				// Tambahkan anak ke daftar node langsung 
+				pq.push(child); 
+			} 
+		} 
+	} 
+} 
+```
+
+Selanjutnya masuk ke program driver untuk menguji fungsi di atas. Untuk ruang yang kosong, diinisiasi dengan nilai 0.
+```c
+int main() { 
+	// Konfigurasi awal
+	// Nilai 0 digunakan untuk ruang kosong
+	int initial[N][N] = { 
+		{1, 2, 3}, 
+		{5, 6, 0}, 
+		{7, 8, 4} 
+	}; 
+
+	// Konfigurasi final yang dapat dipecahkan
+	// Nilai 0 digunakan untuk ruang kosong
+	int final[N][N] = { 
+		{1, 2, 3}, 
+		{4, 5, 6}, 
+		{7, 8, 0} 
+	};
+
+	// Koordinat petak kosong dalam konfigurasi awal
+	int x = 1, y = 2; 
+
+	solve(initial, x, y, final); 
+
+	return 0; 
+} 
+```
 
 ### 1.3 8-Puzzle IDS
 
