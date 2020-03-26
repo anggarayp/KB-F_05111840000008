@@ -304,6 +304,197 @@ int main() {
 
 ### 3. Minimax - TicTacToe
 
+Algoritma minimax merupakan basis dari semua permainan berbasis AI. Pada algoritma minimax, pengecekan akan seluruh kemungkinan yang ada sampai akhir permainan dilakukan. Pengecekan tersebut akan menghasilkan pohon permainan yang berisi semua kemungkinan tersebut.
+
+![image](https://user-images.githubusercontent.com/61231385/77656735-e1193000-6fa6-11ea-860b-444de958d95b.png)
+
+Diatas merupakan penjabaran penggunaan algoritma minimax pada permainan tic-tac-toe
+
+Dibawah ini merupakan fungsi untuk ngecek apakah papan/ board penuh atau tidak
+```c
+int isFull() {
+    for(int i =0;i<9;i++) {
+        if(board[i]!='X') {
+            if(board[i]!='O') {
+                return 0;
+            }
+        }
+    }
+return 1;
+}
+```
+
+Untuk fungsi dibawah ini ngecek user telah menang atau belum
+```c
+int user_won() {
+    for(int i=0;i<9;i+=3) {
+        if((board[i]==board[i+1])&&(board[i+1]==board[i+2])&&(board[i]=='O'))
+            return 1;
+    }
+    for(int i=0;i<3;i++) {
+        if((board[i]==board[i+3])&&(board[i+3]==board[i+6])&&(board[i]=='O'))
+            return 1;
+    }
+    if((board[0]==board[4])&&(board[4]==board[8])&&(board[0]=='O')) {
+        return 1;
+    }
+    if((board[2]==board[4])&&(board[4]==board[6])&&(board[2]=='O')) {
+        return 1;
+    }
+    return 0;
+}
+```
+
+Sedangkan fungsi dibawah ini ngecek CPU yang berupa AI telah menang atau belum
+```c
+int cpu_won() {
+    for(int i=0;i<9;i+=3) {
+        if((board[i]==board[i+1])&&(board[i+1]==board[i+2])&&(board[i]=='X'))
+            return 1;
+    }
+    for(int i=0;i<3;i++) {
+        if((board[i]==board[i+3])&&(board[i+3]==board[i+6])&&(board[i]=='X'))
+            return 1;
+    }
+    if((board[0]==board[4])&&(board[4]==board[8])&&(board[0]=='X')) {
+        return 1;
+    }
+    if((board[2]==board[4])&&(board[4]==board[6])&&(board[2]=='X')) {
+        return 1;
+    }
+    return 0;
+}
+```
+
+Fungsi dibawah ini untuk menampilkan papan tic-tac-toe
+```c
+void draw_board() {
+    cout<<endl;
+    cout<<board[0]<<"|"<<board[1]<<"|"<<board[2]<<endl;
+    cout<<"-----"<<endl;
+    cout<<board[3]<<"|"<<board[4]<<"|"<<board[5]<<endl;
+    cout<<"-----"<<endl;
+    cout<<board[6]<<"|"<<board[7]<<"|"<<board[8]<<endl;
+}
+```
+
+Fungsi untuk menjelaskan algoritma minimax itu sendiri
+```c
+int minimax(bool flag)// The minimax function
+{
+    int max_val=-1000,min_val=1000;
+    int i,j,value = 1;
+    if(cpu_won() == 1)
+        {return 10;}
+    else if(user_won() == 1)
+        {return -10;}
+    else if(isFull()== 1)
+        {return 0;}
+    int score[9] = {1,1,1,1,1,1,1,1,1};		//jika skor[i]=1 maka itu kosong
+        for(i=0;i<9;i++)
+            {
+                 if(board[i] == '*')
+                {
+                    if(min_val>max_val) // kebalikan dari kondisi pemangkasan
+                  {
+                      if(flag == true)
+                   {
+                     board[i] = 'X';
+                     value = minimax(false);
+                   }
+                    else
+                    {
+                      board[i] = 'O';
+                      value = minimax(true);
+                    }
+                  board[i] = '*';
+                  score[i] = value;
+                 }
+               }
+            }
+
+        if(flag == true) {
+                max_val = -1000;
+                for(j=0;j<9;j++) {
+                    if(score[j] > max_val && score[j] != 1) {
+                        max_val = score[j];
+                        index1 = j;
+                    }
+                }
+                return max_val;
+        }
+        if(flag == false) {
+                min_val = 1000;
+                for(j=0;j<9;j++) {
+                    if(score[j] < min_val && score[j] != 1) {
+                        min_val = score[j];
+                        index1 = j;
+                    }
+                }
+            return min_val;
+        }
+}
+```
+
+Program utama untuk menguji fungsi di atas
+```c
+int main() {
+	int move,choice;
+	cout<<"-----------------------------------------------------TIC TAC TOE-----------------------------------------------------";
+	cout<<endl<<"USER--->(O)      CPU------>(X)";
+	cout<<endl<<"SELECT : 1-> Player first, 2-> CPU first:";
+	cin>>choice;
+	if(choice == 1) {
+		draw_board();
+		up:cout<<endl<<"Enter the move:";
+        cin>>move;
+        if(board[move-1]=='*') {
+           board[move-1] = 'O';
+           draw_board();
+        }
+        else {
+            cout<<endl<<"Invalid Move......Try different move";
+            goto up;
+        }
+   }
+
+    while(true) {
+
+    	cout<<endl<<"CPU MOVE....";
+        minimax(true);
+        board[index1] = 'X';
+        draw_board();
+        if(cpu_won()==1) {
+            cout<<endl<<"CPU WON.....";
+            break;
+        }
+        if(isFull()==1) {
+            cout<<endl<<"Draw....";
+            break;
+        }
+		again:  cout<<endl<<"Enter the move:";
+        cin>>move;
+        if(board[move-1]=='*') {
+           board[move-1] = 'O';
+           draw_board();
+        }
+        else {
+            cout<<endl<<"Invalid Move......Try different move";
+            goto again;
+        }
+        if(user_won()==1) {
+            cout<<endl<<"You Won......";
+            break;
+        }
+        if(isFull() == 1) {
+            cout<<endl<<"Draw....";
+            break;
+        }
+    }
+}
+```
+
+
 ### 4. 4-Queen
 Algoritma yang digunakan juga sama seperti 8-Queen yaitu *Backtracking*
 
