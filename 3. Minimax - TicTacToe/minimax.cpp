@@ -1,4 +1,5 @@
 #include<iostream>
+
 using namespace std;
 int index1;
 char board[9] = {'*','*','*','*','*','*','*','*','*'};// Single array represents the board '*' means empty box in board
