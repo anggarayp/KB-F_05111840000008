@@ -306,9 +306,11 @@ int main() {
 
 Algoritma minimax merupakan basis dari semua permainan berbasis AI. Pada algoritma minimax, pengecekan akan seluruh kemungkinan yang ada sampai akhir permainan dilakukan. Pengecekan tersebut akan menghasilkan pohon permainan yang berisi semua kemungkinan tersebut.
 
-![image](https://user-images.githubusercontent.com/61231385/77656735-e1193000-6fa6-11ea-860b-444de958d95b.png)
+[Source Code](https://github.com/anggarayp/KB-F_05111840000008/blob/master/3.%20Minimax%20-%20TicTacToe/minimax.cpp)
 
 Diatas merupakan penjabaran penggunaan algoritma minimax pada permainan tic-tac-toe
+
+https://github.com/anggarayp/KB-F_05111840000008/blob/master/3.%20Minimax%20-%20TicTacToe/minimax.cpp
 
 Dibawah ini merupakan fungsi untuk ngecek apakah papan/ board penuh atau tidak
 ```c
