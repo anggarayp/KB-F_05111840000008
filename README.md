@@ -471,7 +471,13 @@ int main() {
 
 ### 3. Minimax - TicTacToe
 
-Algoritma minimax merupakan basis dari semua permainan berbasis AI. Pada algoritma minimax, pengecekan akan seluruh kemungkinan yang ada sampai akhir permainan dilakukan. Pengecekan tersebut akan menghasilkan pohon permainan yang berisi semua kemungkinan tersebut.
+Algoritma minimax merupakan basis dari semua permainan berbasis AI. Pada algoritma minimax, pengecekan akan seluruh kemungkinan yang ada sampai akhir permainan dilakukan. Pengecekan tersebut akan menghasilkan pohon permainan yang berisi semua kemungkinan tersebut. 
+
+Permainan tic-tac-toe merupakan permainan dengan dua pemain (X dan O) yang bergiliran menempatkan 3 tanda ke papan 3x3. Pemain yang berhasil menempatkan tiga tanda mereka di baris horisontal, vertikal, atau diagonal memenangkan pertandingan.
+
+![image](https://user-images.githubusercontent.com/61231385/77850853-77479300-71ff-11ea-81c2-417c2c09a5ca.png)
+
+Gambar diatas merupakan graph minimax untuk Two-Ply Search
 
 [Source Code](https://github.com/anggarayp/KB-F_05111840000008/blob/master/3.%20Minimax%20-%20TicTacToe/minimax.cpp)
 
