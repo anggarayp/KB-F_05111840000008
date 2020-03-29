@@ -477,13 +477,9 @@ Permainan tic-tac-toe merupakan permainan dengan dua pemain (X dan O) yang bergi
 
 ![image](https://user-images.githubusercontent.com/61231385/77850853-77479300-71ff-11ea-81c2-417c2c09a5ca.png)
 
-Gambar diatas merupakan graph minimax untuk Two-Ply Search
+Gambar diatas merupakan penjabaran penggunaan algoritma minimax pada permainan tic-tac-toe
 
 [Source Code](https://github.com/anggarayp/KB-F_05111840000008/blob/master/3.%20Minimax%20-%20TicTacToe/minimax.cpp)
-
-Diatas merupakan penjabaran penggunaan algoritma minimax pada permainan tic-tac-toe
-
-https://github.com/anggarayp/KB-F_05111840000008/blob/master/3.%20Minimax%20-%20TicTacToe/minimax.cpp
 
 Dibawah ini merupakan fungsi untuk ngecek apakah papan/ board penuh atau tidak
 ```c
