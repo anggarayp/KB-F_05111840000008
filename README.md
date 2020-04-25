@@ -10,7 +10,7 @@ Institut Teknologi Sepuluh Nopember Surabaya
 * [1.3 8-Puzzle IDS](https://github.com/anggarayp/KB-F_05111840000008#13-8-puzzle-ids)
 * [1.4 8-Queen](https://github.com/anggarayp/KB-F_05111840000008#14-8-queen)
 * [2. 8-Puzzle Heuristic-1](https://github.com/anggarayp/KB-F_05111840000008/blob/master/README.md#21-8-puzzle-heuristic)
-* [2.2 8-Queen_Hill Climbing](https://github.com/anggarayp/KB-F_05111840000008/blob/master/README.md#23-8-queen_hill-climbing)
+* [2.1 8-Queen_Hill Climbing](https://github.com/anggarayp/KB-F_05111840000008/blob/master/README.md#23-8-queen_hill-climbing)
 * [3. Minimax - TicTacToe](https://github.com/anggarayp/KB-F_05111840000008/blob/master/README.md#3-minimax---tictactoe)
 * [4. 4-Queen](https://github.com/anggarayp/KB-F_05111840000008#4-4-queen)
 
@@ -508,7 +508,39 @@ Dapat disimpulkan dari semua yang telah dipaparkan diatas, penggunaan dari dua f
 
 [Source Code](https://github.com/anggarayp/KB-F_05111840000008/blob/master/2%208-Puzzle%20Heuristic/heuristic.cpp)
 
-### 2.3 8-Queen_Hill Climbing
+### 2.1 8-Queen_Hill Climbing
+
+`Hill Climbing` atau yang biasa disebut `Greedy Local Search` adalah pencarian heuristik yang digunakan untuk masalah optimasi matematis di bidang Inteligensi Buatan. Hill  climbing  sering  membuat  solusi  karena  biasanya cukup mudah memperbaiki keadaan buruk. 
+
+Algoritma ini merupakan satu-satunya  komponen  yang  terus  bergerak  menuju  peningkatan nilai yaitu menanjak. Ini berakhir ketika mencapai "puncak" di mana  tidak  ada  tetangga  yang  memiliki  nilai  lebih  tinggi. Algoritma  tidak  mempertahankan  pohon  pencarian,  sehingga struktur data untuk node saat ini hanya perlu mencatat keadaan dan nilai dari fungsi objektif. Pendakian Hill tidak melihat ke depan melampaui tetangga langsung dari keadaan saat ini. Dengan sejumlah besar input dan fungsi heuristik yang baik, ia mencoba untuk menemukan solusi yang cukup baik untuk masalah tersebut. 
+
+* Dalam definisi di atas, Mathematical Optimization Problems menyiratkan bahwa mendaki bukit memecahkan masalah di mana kita perlu memaksimalkan atau meminimalkan fungsi nyata yang diberikan dengan memilih nilai dari input yang diberikan. Contoh-Traveling salesman masalah di mana kita perlu meminimalkan jarak yang ditempuh oleh salesman.
+* Heuristic Search berarti bahwa algoritma pencarian ini mungkin tidak menemukan solusi optimal untuk masalah tersebut. Namun, itu akan memberikan solusi yang baik dalam waktu yang wajar.
+* Heuristic Function adalah fungsi yang akan memberi peringkat semua alternatif yang mungkin pada setiap langkah percabangan dalam algoritma pencarian berdasarkan informasi yang tersedia. Ini membantu algoritma untuk memilih rute terbaik dari rute yang mungkin.
+
+![image](https://user-images.githubusercontent.com/61231385/80289695-8112d680-876a-11ea-9250-41c4d2c278ff.png)
+
+*Hill climbing* bekerja dengan cara yang sama dengan algoritma *backtracking* namun sama sekali mengabaikan mengabaikan memori simpul yang dieksplorasi. Oleh karena itu, ia menyusuri Search Tree dengan memilih penerus dengan nilai heuristik termurah, tanpa menyimpan memori yang dieksplorasi. Ini akan memastikan bahwa hal ini berfungsi dengan penggunaan memori minimal, setidaknya perhitungan mungkin namun tetap mempertahankan keuntungan dari metode pencarian solusi yang diinformasikan.
+
+## Jenis Hill Climbing
+
+- **Simple Hill Climbing**
+Algoritma Simple Hill climbing :
+    - Evaluasi keadaan awal. Jika itu adalah keadaan tujuan maka berhentilah dan kembalikan kesuksesan. Kalau tidak, jadikan kondisi awal sebagai kondisi saat ini.
+    - Loop sampai keadaan solusi ditemukan atau tidak ada operator baru yang dapat diterapkan ke keadaan saat ini.
+    - Exit
+    
+- **Steepest-Ascent Hill Climbing**
+Periksa semua node tetangga dan kemudian memilih simpul yang paling dekat dengan keadaan solusi pada simpul berikutnya.
+
+    - Evaluasi keadaan awal. Jika status tujuan maka keluar dari yang lain jadikan status saat ini sebagai keadaan awal
+    - Ulangi langkah ini sampai solusi ditemukan atau keadaan saat ini tidak berubah
+    - Exit
+
+- **Stochastic Hill Climbing**
+Itu tidak memeriksa semua node tetangga sebelum memutuskan node mana yang akan dipilih. Itu hanya memilih node tetangga secara acak dan memutuskan (berdasarkan jumlah peningkatan tetangga itu) apakah akan pindah ke tetangga itu atau untuk memeriksa yang lain.
+
+[Source Code](https://github.com/anggarayp/KB-F_05111840000008/blob/master/2.1%208-Queen%20Hill%20Climbing/hc.cpp)
 
 ### 3. Minimax - TicTacToe
 
