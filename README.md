@@ -527,6 +527,7 @@ Algoritma ini merupakan satu-satunya  komponen  yang  terus  bergerak  menuju  p
 - **Simple Hill Climbing**
 
 Algoritma Simple Hill climbing :
+
     - Evaluasi keadaan awal. Jika itu adalah keadaan tujuan maka berhentilah dan kembalikan kesuksesan. Kalau tidak, jadikan kondisi awal sebagai kondisi saat ini.
     - Loop sampai keadaan solusi ditemukan atau tidak ada operator baru yang dapat diterapkan ke keadaan saat ini.
     - Exit
