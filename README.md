@@ -488,10 +488,23 @@ Dalam bahasan ini, fungsi heuristik yang akan kita tampilkan yaitu adalah sebaga
 * h₁(n) : sebagai banyak grid yang menempati tempat yang salah.
 * h₂(n) : sebagai total keseluruhan jarak tiap grid yang menempati tempat yang salah terhadap posisi grid yang benar, atau sering disebut dengan manhattan distance.
 
+Untuk `heuristic-1` dapat dilihat seperti diagram dibawah ini :
+
 ![image](https://user-images.githubusercontent.com/61231385/80282168-26fa1d00-873a-11ea-8a86-e02f822502ef.png)
-![image](https://user-images.githubusercontent.com/61231385/80282193-4a24cc80-873a-11ea-9ea3-bdd702c7f1a8.png)
+![image](https://user-images.githubusercontent.com/61231385/80282234-8e17d180-873a-11ea-9fb8-4fd2040fb38f.png)
 ![image](https://user-images.githubusercontent.com/61231385/80282202-57da5200-873a-11ea-9432-d57b057788e2.png)
 
+Solusi : Initial State -> Right -> Up -> Right -> Down -> Down -> Left -> Up -> Right -> Down(Goal).
+
+Sedangkan untuk `heuristic-2` ditunjukkan oleh diagaram dibawah ini :
+
+![image](https://user-images.githubusercontent.com/61231385/80282282-d0411300-873a-11ea-9ba1-92e947fb9434.png)
+![image](https://user-images.githubusercontent.com/61231385/80282303-e5b63d00-873a-11ea-853e-d23b4f37b816.png)
+![image](https://user-images.githubusercontent.com/61231385/80282355-3332aa00-873b-11ea-8aab-d9a3fd0804e1.png)
+
+Solusi : Initial State -> Right -> Up -> Right -> Down -> Down -> Left -> Up -> Right -> Up(Goal).
+
+Dapat disimpulkan dari semua yang telah dipaparkan diatas, penggunaan dari dua fungsi heuristik Algoritma Greedy pada solusi penyelesaian 8-puzzle, baik fungsi heuristik pertama dan kedua sama sama mampu memberikan solusi penyelesaian dari awal state sampai ke goal state. 
 
 [Source Code](https://github.com/anggarayp/KB-F_05111840000008/blob/master/2%208-Puzzle%20Heuristic/heuristic.cpp)
 
