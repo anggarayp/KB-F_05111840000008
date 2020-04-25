@@ -9,9 +9,8 @@ Institut Teknologi Sepuluh Nopember Surabaya
 * [1.2 8-Puzzle DFS](https://github.com/anggarayp/KB-F_05111840000008#12-8-puzzle-dfs)
 * [1.3 8-Puzzle IDS](https://github.com/anggarayp/KB-F_05111840000008#13-8-puzzle-ids)
 * [1.4 8-Queen](https://github.com/anggarayp/KB-F_05111840000008#14-8-queen)
-* [2.1 8-Puzzle Heuristic-1](https://github.com/anggarayp/KB-F_05111840000008/blob/master/README.md#21-8-puzzle-heuristic-1)
-* [2.2 8-Puzzle Heuristic-2](https://github.com/anggarayp/KB-F_05111840000008/blob/master/README.md#22-8-puzzle-heuristic-2)
-* [2.3 8-Queen_Hill Climbing](https://github.com/anggarayp/KB-F_05111840000008/blob/master/README.md#23-8-queen_hill-climbing)
+* [2. 8-Puzzle Heuristic-1](https://github.com/anggarayp/KB-F_05111840000008/blob/master/README.md#21-8-puzzle-heuristic)
+* [2.2 8-Queen_Hill Climbing](https://github.com/anggarayp/KB-F_05111840000008/blob/master/README.md#23-8-queen_hill-climbing)
 * [3. Minimax - TicTacToe](https://github.com/anggarayp/KB-F_05111840000008/blob/master/README.md#3-minimax---tictactoe)
 * [4. 4-Queen](https://github.com/anggarayp/KB-F_05111840000008#4-4-queen)
 
@@ -476,9 +475,25 @@ int main() {
 
 ![](Screenshots/hasil_8queen.jpg)
 
-### 2.1 8-Puzzle Heuristic-1
+### 2.1 8-Puzzle Heuristic
+Kali ini kita menggunakan algoritma `Heuristic` dimana ada `Heuristic 1` dan `Heuristic 2`. Dimana jika menggunakan heuristic 1 maka yang dilihat yaitu banyaknya grid yang menempati tempat yg salah, tetapi jika menggunakan heuristic 2 maka yang dilihat yaitu total keseluruhan jarak tiap grid yang menempati tempat yang salah terhadap posisi grid yang benar, atau sering disebut dengan manhattan distance. Jadi dalam penyelesainnya kita mengeluarkan hasil setiap langkah puzzle dengan melihat penempatan grid yang salah kemudian dicari penempatan grid yang benar untuk mencapai final state yang diinginkan.
 
-### 2.2 8-Puzzle Heuristic-2
+![image](https://user-images.githubusercontent.com/61231385/80282116-dc78a080-8739-11ea-87a8-4af027bb838e.png)
+
+Dengan menyelesaikan puzzle ini menggunakan suatu algoritma, yaitu Algoritma Greedy, dengan menggunakan dua fungsi heuristik. Algoritma Greedy merupakan algoritma yang sederhana dan lempeng (straightforward). Secara harfiah greedy artinya rakus atau tamak.
+
+Algoritma Greedy membentuk solusi langkah per langkah. Terdapat banyak pilihan yang perlu dieksplorasi pada setiap langkah solusi. Oleh karena itu, pada setiap langkah harus dibuat keputusan yang terbaik dalam menentukan pilihan.
+
+Dalam bahasan ini, fungsi heuristik yang akan kita tampilkan yaitu adalah sebagai berikut.
+* h₁(n) : sebagai banyak grid yang menempati tempat yang salah.
+* h₂(n) : sebagai total keseluruhan jarak tiap grid yang menempati tempat yang salah terhadap posisi grid yang benar, atau sering disebut dengan manhattan distance.
+
+![image](https://user-images.githubusercontent.com/61231385/80282168-26fa1d00-873a-11ea-8a86-e02f822502ef.png)
+![image](https://user-images.githubusercontent.com/61231385/80282193-4a24cc80-873a-11ea-9ea3-bdd702c7f1a8.png)
+![image](https://user-images.githubusercontent.com/61231385/80282202-57da5200-873a-11ea-9432-d57b057788e2.png)
+
+
+[Source Code](https://github.com/anggarayp/KB-F_05111840000008/blob/master/2%208-Puzzle%20Heuristic/heuristic.cpp)
 
 ### 2.3 8-Queen_Hill Climbing
 
