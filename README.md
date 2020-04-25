@@ -9,7 +9,7 @@ Institut Teknologi Sepuluh Nopember Surabaya
 * [1.2 8-Puzzle DFS](https://github.com/anggarayp/KB-F_05111840000008#12-8-puzzle-dfs)
 * [1.3 8-Puzzle IDS](https://github.com/anggarayp/KB-F_05111840000008#13-8-puzzle-ids)
 * [1.4 8-Queen](https://github.com/anggarayp/KB-F_05111840000008#14-8-queen)
-* [2. 8-Puzzle Heuristic-1](https://github.com/anggarayp/KB-F_05111840000008/blob/master/README.md#21-8-puzzle-heuristic)
+* [2. 8-Puzzle Heuristic-1](https://github.com/anggarayp/KB-F_05111840000008/blob/master/README.md#2-8-puzzle-heuristic)
 * [2.1 8-Queen_Hill Climbing](https://github.com/anggarayp/KB-F_05111840000008/blob/master/README.md#21-8-queen_hill-climbing)
 * [3. Minimax - TicTacToe](https://github.com/anggarayp/KB-F_05111840000008/blob/master/README.md#3-minimax---tictactoe)
 * [4. 4-Queen](https://github.com/anggarayp/KB-F_05111840000008#4-4-queen)
@@ -525,12 +525,14 @@ Algoritma ini merupakan satu-satunya  komponen  yang  terus  bergerak  menuju  p
 ## Jenis Hill Climbing
 
 - **Simple Hill Climbing**
+
 Algoritma Simple Hill climbing :
     - Evaluasi keadaan awal. Jika itu adalah keadaan tujuan maka berhentilah dan kembalikan kesuksesan. Kalau tidak, jadikan kondisi awal sebagai kondisi saat ini.
     - Loop sampai keadaan solusi ditemukan atau tidak ada operator baru yang dapat diterapkan ke keadaan saat ini.
     - Exit
     
 - **Steepest-Ascent Hill Climbing**
+
 Periksa semua node tetangga dan kemudian memilih simpul yang paling dekat dengan keadaan solusi pada simpul berikutnya.
 
     - Evaluasi keadaan awal. Jika status tujuan maka keluar dari yang lain jadikan status saat ini sebagai keadaan awal
@@ -538,6 +540,7 @@ Periksa semua node tetangga dan kemudian memilih simpul yang paling dekat dengan
     - Exit
 
 - **Stochastic Hill Climbing**
+
 Itu tidak memeriksa semua node tetangga sebelum memutuskan node mana yang akan dipilih. Itu hanya memilih node tetangga secara acak dan memutuskan (berdasarkan jumlah peningkatan tetangga itu) apakah akan pindah ke tetangga itu atau untuk memeriksa yang lain.
 
 [Source Code](https://github.com/anggarayp/KB-F_05111840000008/blob/master/2.1%208-Queen%20Hill%20Climbing/hc.cpp)
