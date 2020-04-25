@@ -382,6 +382,19 @@ int main() {
 ```
 
 ### 1.3 8-Puzzle IDS
+`Iterative Deepening Search (IDS)` merupakan sebuah strategi umum yang biasanya dikombinasikan dengan Depth First tree search, yang akan menemukan berapa depth limit terbaik untuk digunakan. Hal ini dilakukan dengan secara menambah limit secara bertahap, mulai dari 0,1, 2, dan seterusnya sampai goal sudah ditemukan.
+
+Iteratif memperdalam kedalaman-pertama pencarian (IDS) adalah pencarian ruang strategi di mana pencarian mendalam-terbatas dijalankan berulang kali, meningkatkan batas kedalaman dengan setiap iterasi sampai mencapai, kedalaman negara tujuan dangkal. IDS setara dengan luas-pertama pencarian, tetapi menggunakan memori lebih sedikit, pada setiap iterasi, ia mengunjungi node dalam pohon pencarian dalam urutan yang sama seperti depth-first search, tapi urutan kumulatif di mana node pertama kali mengunjungi secara efektif luasnya -pertama.
+
+IDS menggabungkan depth-first pencari ruang-efisiensi dan kelengkapan luas-pertama pencarian ini (ketika faktor percabangan terbatas). Ini adalah optimal ketika biaya jalan adalah fungsi non-penurunan kedalaman node.
+
+![image](https://user-images.githubusercontent.com/61231385/80281446-68d49480-8735-11ea-93d7-79573fdbe84d.png)
+
+Kompleksitas ruang IDS adalah, di mana merupakan faktor percabangan dan kedalaman dangkal gawang. Karena berulang memperdalam kunjungan menyatakan beberapa kali, hal itu mungkin tampak sia-sia, tapi ternyata menjadi tidak begitu mahal, karena di pohon sebagian besar node berada di tingkat bawah, sehingga tidak terlalu menjadi masalah jika tingkat atas yang dikunjungi beberapa kali.
+
+Keuntungan utama dari IDS dalam mencari permainan pohon adalah bahwa pencarian sebelumnya cenderung meningkatkan heuristik yang biasa digunakan, seperti heuristik pembunuh dan pemangkasan alpha-beta, sehingga perkiraan yang lebih akurat dari skor berbagai node pada pencarian kedalaman akhir dapat terjadi, dan pencarian selesai lebih cepat karena dilakukan dalam urutan yang lebih baik.
+
+[Source Code](https://github.com/anggarayp/KB-F_05111840000008/blob/master/1.3%208-Puzzle%20IDS/ids.cpp)
 
 ### 1.4 8-Queen
 Algoritma yang digunakan adalah *Backtracking*. Idenya adalah untuk menempatkan ratu satu per satu di kolom yang berbeda, mulai dari kolom paling kiri. Ketika seorang ratu ditempatkan dalam sebuah kolom, memeriksa bentrokan dengan ratu yang sudah ditempatkan. Di kolom saat ini, jika menemukan baris yang tidak ada bentrokan, menandai baris dan kolom ini sebagai bagian dari solusi. Jika tidak menemukan baris seperti itu karena bentrokan, maka *backtrack* dan return false.
