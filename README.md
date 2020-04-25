@@ -10,7 +10,7 @@ Institut Teknologi Sepuluh Nopember Surabaya
 * [1.3 8-Puzzle IDS](https://github.com/anggarayp/KB-F_05111840000008#13-8-puzzle-ids)
 * [1.4 8-Queen](https://github.com/anggarayp/KB-F_05111840000008#14-8-queen)
 * [2. 8-Puzzle Heuristic-1](https://github.com/anggarayp/KB-F_05111840000008/blob/master/README.md#21-8-puzzle-heuristic)
-* [2.1 8-Queen_Hill Climbing](https://github.com/anggarayp/KB-F_05111840000008/blob/master/README.md#23-8-queen_hill-climbing)
+* [2.1 8-Queen_Hill Climbing](https://github.com/anggarayp/KB-F_05111840000008/blob/master/README.md#21-8-queen_hill-climbing)
 * [3. Minimax - TicTacToe](https://github.com/anggarayp/KB-F_05111840000008/blob/master/README.md#3-minimax---tictactoe)
 * [4. 4-Queen](https://github.com/anggarayp/KB-F_05111840000008#4-4-queen)
 
@@ -475,7 +475,7 @@ int main() {
 
 ![](Screenshots/hasil_8queen.jpg)
 
-### 2.1 8-Puzzle Heuristic
+### 2. 8-Puzzle Heuristic
 Kali ini kita menggunakan algoritma `Heuristic` dimana ada `Heuristic 1` dan `Heuristic 2`. Dimana jika menggunakan heuristic 1 maka yang dilihat yaitu banyaknya grid yang menempati tempat yg salah, tetapi jika menggunakan heuristic 2 maka yang dilihat yaitu total keseluruhan jarak tiap grid yang menempati tempat yang salah terhadap posisi grid yang benar, atau sering disebut dengan manhattan distance. Jadi dalam penyelesainnya kita mengeluarkan hasil setiap langkah puzzle dengan melihat penempatan grid yang salah kemudian dicari penempatan grid yang benar untuk mencapai final state yang diinginkan.
 
 ![image](https://user-images.githubusercontent.com/61231385/80282116-dc78a080-8739-11ea-87a8-4af027bb838e.png)
